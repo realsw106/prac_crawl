@@ -1,27 +1,18 @@
+from gc import collect
 from bs4 import BeautifulSoup
-import requests
 import pandas as pd
-import openpyxl
-import datetime
 from selenium import webdriver
 import chromedriver_autoinstaller
 import time
-import random
 import numpy as np
-import os
 from fake_useragent import UserAgent
-
-def to_int(text):
-    import re
-    p = re.compile(r'[ㄱ-힣,\\n%]+')  #\\n%추가
-    return int(re.sub(p,"",text))
+from module import today_date,to_int
 
 def st11():
-
-    collect_date = datetime.datetime.now().strftime("%Y-%m-%d")
-
     ua = UserAgent()
     
+    collect_date = today_date()
+
     options = webdriver.ChromeOptions() # 크롬 옵션 객체 생성
     # options.add_argument('headless') # headless 모드 설정
     options.add_argument(f'user-agent={ua}')

@@ -1,21 +1,15 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-import openpyxl
 import time
 import random
 import numpy as np
-import os
-import datetime
 from fake_useragent import UserAgent
+from module import today_date,to_int
 
-def to_int(text):
-    import re
-    p = re.compile(r'[()ㄱ-힣,\\n%]+')  #\\n%추가
-    return int(re.sub(p,"",text))
 
 def gmarket():
-    collect_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    collect_date = today_date()
 
     ua = UserAgent()
     url = 'http://corners.gmarket.co.kr/Bestsellers?viewType=G&groupCode=G04&subGroupCode=S076'

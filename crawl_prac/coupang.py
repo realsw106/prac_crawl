@@ -1,24 +1,13 @@
-from gc import collect
 import requests
-import re
-import json
 import pandas as pd
 import numpy as np
-import datetime
 from urllib import parse
-import random
-import time
-from datetime import datetime,timedelta
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
-
-def to_int(text):
-    import re
-    p = re.compile(r'[()ㄱ-힣,\\n%]+')  #\\n%추가
-    return int(re.sub(p,"",text))
+from module import today_date,to_int
 
 def coupang():
-    collect_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    collect_date = today_date()
 
     ua = UserAgent()
 

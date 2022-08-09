@@ -1,23 +1,15 @@
-from re import S
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-import openpyxl
 import time
 import random
 import numpy as np
-import os
 import datetime
 from fake_useragent import UserAgent
-
-def to_int(text):
-    import re
-    p = re.compile(r'[()ㄱ-힣,\\n%]+')  #\\n%추가
-    return int(re.sub(p,"",text))
+from module import today_date,to_int
 
 def auction():
-    collect_date = datetime.datetime.now().strftime("%Y-%m-%d")
-
+    from module import today_date,to_int
     ua = UserAgent()
 
     url = 'http://corners.auction.co.kr/corner/categorybest.aspx?catetab=5&category=20000000'
